@@ -1,5 +1,6 @@
 # BankSol
 My internship test project
+____
 
 ## Task list
 
@@ -17,6 +18,6 @@ My internship test project
 
 :black_square_button: SCs should be tested(mocha & chai), deployed on testnet and verified.
  
-Optional
+*Optional*
 
 :black_square_button: For ambition: Create a simple webpage to interact with SCs (web3).
