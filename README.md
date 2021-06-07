@@ -5,7 +5,7 @@ My internship test project
 
 :white_check_mark: Credit functional. 
 
-:white_check_mark: Deposit functional. 
+:black_square_button: Deposit functional. 
 
 :black_square_button: Only the owner can change APY(%).
 
