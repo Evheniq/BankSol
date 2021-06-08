@@ -21,3 +21,7 @@ ____
 *Optional*
 
 :black_square_button: For ambition: Create a simple webpage to interact with SCs (web3).
+
+____
+
+❌ I'm stuck on calculating profits
