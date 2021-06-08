@@ -6,15 +6,15 @@ ____
 
 :white_check_mark: Credit functional. 
 
-:black_square_button: Deposit functional. 
+:white_check_mark: Deposit functional. 
 
-:black_square_button: Only the owner can change APY(%).
+:white_check_mark: Only the owner can change APY(%).
 
-:black_square_button: Only the owner can accept/decline credit.
+:white_check_mark: Only the owner can accept/decline credit.
 
-:black_square_button: Anyone can deposit assets, create credit request.
+:white_check_mark: Anyone can deposit assets, create credit request.
 
-:black_square_button: Create an ERC20 token as the main asset.
+:white_check_mark: Create an ERC20 token as the main asset.
 
 :black_square_button: SCs should be tested(mocha & chai), deployed on testnet and verified.
  
