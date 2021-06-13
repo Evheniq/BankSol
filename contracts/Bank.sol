@@ -14,28 +14,28 @@ contract Erc20 {
     event Transfer(address indexed _from, address indexed _to, uint _value);
     event Approval(address indexed _from, address indexed _to, uint _value);
     
-    function mint(address to, uint value) public{
+    function mintErc(address to, uint value) public{
         require(totalSupply + value >= totalSupply && balances[to] + value >= balances[to]);
         balances[to] += value;
         totalSupply += value;
     }
     
-    function balanceOf(address owner) public view returns(uint){
+    function balanceOfErc(address owner) public view returns(uint){
         return balances[owner];
     }
     
-    function allowance(address _owner, address _spender) public view returns(uint){
+    function allowanceErc(address _owner, address _spender) public view returns(uint){
         return allowed[_owner][_spender];
     }
     
-    function transfer(address _to, uint _value) public {
+    function transferErc(address _to, uint _value) public {
         require(balances[msg.sender] >= _value && balances[_to] + _value >= balances[_to]);
         balances[msg.sender] -= _value;
         balances[_to] += _value;
         emit Transfer (msg.sender, _to, _value);
     }
     
-    function transferFrom(address _from, address _to, uint _value) public {
+    function transferFromErc(address _from, address _to, uint _value) public {
         require(balances[_from] >= _value && balances[_to] + _value >= balances[_to] && allowed[_from][msg.sender] >= _value);
         balances[_from] -= _value;
         balances[_to] += _value;
@@ -43,11 +43,15 @@ contract Erc20 {
         emit Transfer (_from, _to, _value);
     }
     
-    function approve(address _spender, uint _value) public {
+    function approveErc(address _spender, uint _value) public {
         allowed[msg.sender][_spender] = _value;
         emit Transfer (msg.sender, _spender, _value);
     }
     
+    function burnErc(uint _value) public {
+        transferErc(0x0000000000000000000000000000000000000000, _value); // burn
+        totalSupply = totalSupply - _value;
+    }
 }
 
 contract Ownable {
@@ -67,7 +71,6 @@ contract Bank is Erc20, Ownable {
     
     uint16 public APY = 20;
     uint8 public constant ownerProfit = 10; // spread
-    
     
     function Bank() public {
         
@@ -127,18 +130,22 @@ contract Bank is Erc20, Ownable {
     mapping (address => depositClient) public acceptedDeposits;
     
     function deposit () public payable{
-        mint(msg.sender, msg.value); // mint 1 ETH = 1 MBT
-        acceptedDeposits[msg.sender] = depositClient(msg.value, APY, now); // Assume that 1 person 1 deposit
+        mintErc(msg.sender, msg.value); // mint 1 ETH = 1 MBT
+        acceptedDeposits[msg.sender] = depositClient(msg.value, APY, now); // Assume that 1 person, 1 deposit
     }
     
     function returnDeposit(uint _value){
         msg.sender.transfer(_value);
         acceptedDeposits[msg.sender].amountDeposit = acceptedDeposits[msg.sender].amountDeposit - _value;
-        transfer(0x0000000000000000000000000000000000000000, _value); // burn
+        burnErc(_value);
     }
     
     function showDeposit() view public returns(uint){
-        return acceptedDeposits[msg.sender].amountDeposit; // Not work profit calculate in all function. I`m trying: return acceptedDeposits[msg.sender].amountDeposit*(acceptedDeposits[msg.sender].thenAPY/100/((now-acceptedDeposits[msg.sender].date)/31579200))
+        return acceptedDeposits[msg.sender].amountDeposit;
     }
+    
+    // function testProfitability() public view returns(uint){
+    //     return (100*(20/100/((now-1623602308)/31579200)));
+    // }
     
 }
