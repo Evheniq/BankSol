@@ -24,4 +24,5 @@ ____
 
 ____
 
-❌ I'm stuck on calculating profits
+❌ calculating profits
+❌ accept credit
