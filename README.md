@@ -24,6 +24,6 @@ ____
 
 ____
 
-❌ calculating profits
+❌ Сalculating profits
 
 ❌ Truffle migration, compile
