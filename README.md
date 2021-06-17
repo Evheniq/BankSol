@@ -25,4 +25,5 @@ ____
 ____
 
 ❌ calculating profits
-❌ accept credit
+_
+❌ Truffle migration, compile
