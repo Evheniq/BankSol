@@ -16,7 +16,7 @@ ____
 
 :white_check_mark: Create an ERC20 token as the main asset.
 
-:black_square_button: SCs should be tested(mocha & chai), deployed on testnet and verified.
+⚠️ SCs should be tested(mocha & chai), deployed on testnet and verified.
  
 *Optional*
 
@@ -26,4 +26,4 @@ ____
 
 ❌ Сalculating profits
 
-❌ Truffle migration, compile
+❌ Testing error: TypeError: Bank.deposit is not a function
