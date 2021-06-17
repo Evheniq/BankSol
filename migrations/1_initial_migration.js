@@ -1,5 +1,5 @@
-const Migrations = artifacts.require("BankSol");
+const Bank = artifacts.require("./Bank.sol");
 
-module.exports = function (deployer) {
-  deployer.deploy(Migrations);
+module.exports = function(deployer) {
+    deployer.deploy(Bank);
 };

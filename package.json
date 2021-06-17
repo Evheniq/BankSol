@@ -15,5 +15,9 @@
     "ganache-cli": "^6.12.2",
     "install": "^0.13.0",
     "npm": "^7.17.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-bignumber": "^3.0.0"
   }
 }

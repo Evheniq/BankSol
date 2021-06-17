@@ -57,7 +57,7 @@ contract Erc20 {
 contract Ownable {
     address public owner;
     
-    function Ownable() public {
+    constructor() public {
         owner = msg.sender;
     }
     
@@ -72,9 +72,7 @@ contract Bank is Erc20, Ownable {
     uint16 public APY = 20;
     uint8 public constant ownerProfit = 10; // spread
     
-    function Bank() public {
-        
-    }
+    constructor() public {}
 
     function setAPY(uint16 _APY) onlyOwner public{
         APY = _APY;
