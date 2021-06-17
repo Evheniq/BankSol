@@ -24,6 +24,5 @@ ____
 
 ____
 
-❌ calculating profits
-_
-❌ Truffle migration, compile
+:black_square_button: calculating profits
+:black_square_button: Truffle migration, compile
