@@ -1,5 +1,5 @@
 # BankSol
-My internship test project
+My test project
 ____
 
 ## Task list
